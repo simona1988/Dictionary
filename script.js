@@ -10,11 +10,13 @@ function searchWord() {
     const definitionDiv = document.getElementById('definition');
     definitionDiv.innerText = '';  
     definitionDiv.classList.remove('text-danger', 'text-success');  
+    
     if (dictionary[wordInput]) {
         definitionDiv.innerText = dictionary[wordInput];  
         definitionDiv.classList.add('text-success');  
-        definitionDiv.innerText = "The word was not found in the dictionary.";  
-        definitionDiv.classList.add('text-danger'); 
+    } else {
+        definitionDiv.innerText = "The word was not found in the dictionary.";
+        definitionDiv.classList.add('text-danger');
     }
 }
 
@@ -24,6 +26,7 @@ function addWord() {
     const addConfirmationDiv = document.getElementById('addConfirmation');
     addConfirmationDiv.innerText = '';
     addConfirmationDiv.classList.remove('text-success', 'text-danger');
+    
     if (newWordInput && newDefinitionInput) {
         dictionary[newWordInput] = newDefinitionInput;   
         addConfirmationDiv.innerText = `The word "${newWordInput}" has been added to the dictionary.`;
